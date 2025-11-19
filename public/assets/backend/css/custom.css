@@ -1,0 +1,27 @@
+.toast-container {
+    top: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+button {
+    background-color: transparent;
+}
+
+.fill {
+    min-height: 80vh;
+}
+
+label.required::after {
+    content: '*';
+    color: red;
+}
+
+.form-label {
+    color: var(--secondary-color);
+    font-weight: 500;
+}

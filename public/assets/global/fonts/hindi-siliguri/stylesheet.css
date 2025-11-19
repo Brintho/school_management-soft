@@ -1,0 +1,60 @@
+@font-face {
+    font-family: 'Hind Siliguri';
+    src: url('HindSiliguri-Regular.eot');
+    src: url('HindSiliguri-Regular.eot?#iefix') format('embedded-opentype'),
+        url('HindSiliguri-Regular.woff2') format('woff2'),
+        url('HindSiliguri-Regular.woff') format('woff'),
+        url('HindSiliguri-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Hind Siliguri';
+    src: url('HindSiliguri-Light.eot');
+    src: url('HindSiliguri-Light.eot?#iefix') format('embedded-opentype'),
+        url('HindSiliguri-Light.woff2') format('woff2'),
+        url('HindSiliguri-Light.woff') format('woff'),
+        url('HindSiliguri-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Hind Siliguri';
+    src: url('HindSiliguri-Medium.eot');
+    src: url('HindSiliguri-Medium.eot?#iefix') format('embedded-opentype'),
+        url('HindSiliguri-Medium.woff2') format('woff2'),
+        url('HindSiliguri-Medium.woff') format('woff'),
+        url('HindSiliguri-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Hind Siliguri';
+    src: url('HindSiliguri-Bold.eot');
+    src: url('HindSiliguri-Bold.eot?#iefix') format('embedded-opentype'),
+        url('HindSiliguri-Bold.woff2') format('woff2'),
+        url('HindSiliguri-Bold.woff') format('woff'),
+        url('HindSiliguri-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Hind Siliguri';
+    src: url('HindSiliguri-SemiBold.eot');
+    src: url('HindSiliguri-SemiBold.eot?#iefix') format('embedded-opentype'),
+        url('HindSiliguri-SemiBold.woff2') format('woff2'),
+        url('HindSiliguri-SemiBold.woff') format('woff'),
+        url('HindSiliguri-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+

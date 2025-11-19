@@ -1,0 +1,90 @@
+/*
+ Template Name: Onlinedu 
+ Template URI: https://
+ Author: ThemeWar
+ Author URI: https://
+ Description: Onlinedu Dashboard
+ Version: 2.0.0
+ License:
+ License URI: 
+*/
+
+@media all and (max-width: 1365px){
+    .top-header .search-bar {
+        flex: 0 0 300px;
+        max-width: 300px;
+        margin-left: auto;
+        margin-right: 20px;
+    }
+}
+
+@media all and (max-width: 1024px){
+    .sidebar {
+        left: -256px;
+        top: 60px;
+        height: calc(100vh - 60px);
+    }
+    .sidebar-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+    .sidebar.sidebar_small {
+        left: 0;
+        top: 60px;
+    }
+    .sidebar ~ .main-content {
+        margin-left: 0;
+    }
+    .sidebar_toggle.top-6 {
+        top: -2px !important;
+    }
+    .top-header {
+        padding: 10px 12px;
+    }
+    .sidebar ~ .top-header {
+        left: 0;
+    }
+    .sidebar_toggle {
+        position: relative;
+        left: 0;
+        top: 0;
+    }
+    .chart-control .chart-mark {
+        gap: 10px;
+    }
+    .fs-32 {
+        font-size: 24px !important;
+    }
+}
+
+@media all and (max-width: 767px){
+    .top-header .search-bar {
+        display: none;
+    }
+    .message-sidebar {
+        padding-right: 16px;
+    }
+    .message-box {
+        border-left: 0;
+    }
+    .pagin-action-items .selected-item {
+        padding: 10px  10px;
+    }
+    .pagin-action-items .export {
+        padding: 8px  10px;
+    }
+}
+
+@media all and (max-width: 480px){
+    .main-content {
+        padding: 82px 16px 24px;
+    }
+    .top-header .actions .nice-control {
+        display: none;
+    }
+    .footer-action {
+        justify-content: flex-start;
+        flex: 0 0 auto;
+        margin-top: 20px;
+    }
+}
