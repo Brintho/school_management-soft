@@ -18,6 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('class_id')->nullable();
             $table->unsignedBigInteger('section_id')->nullable();
             $table->unsignedBigInteger('shift_id')->nullable();
+            $table->integer('roll')->nullable();
             $table->string('guardian_number')->nullable();
             $table->string('father_name')->nullable();
             $table->string('mother_name')->nullable();

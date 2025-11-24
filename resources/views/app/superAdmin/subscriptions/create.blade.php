@@ -17,8 +17,7 @@
         <input type="date" id="expiry" name="expiry" class="form-control" required>
     </div>
     <div class="input-field mb-3">
-        <label for="payment_status"
-            class="form-label fs-14 fw-500 text-secondary mb-8">{{ translate('Payment Status') }}</label>
+        <label for="payment_status" class="form-label fs-14 fw-500 text-secondary mb-8">{{ translate('Payment Status') }}</label>
         <select id="payment_status" name="payment_status" class="form-control border rounded-6">
             <option value="paid">{{ translate('Paid') }}</option>
             <option value="unpaid">{{ translate('Unpaid') }}</option>

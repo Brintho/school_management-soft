@@ -20,8 +20,10 @@ class StudentController extends Controller
     {
         $page_data['students'] = User::with(['student.class', 'student.section', 'student.shift'])
             ->where('role_id', getRoleId('student'))
+            ->whereHas('student')
             ->orderByDesc('id')
             ->paginate(20);
+
         return view('backend::admin.users.students.index', $page_data);
     }
 

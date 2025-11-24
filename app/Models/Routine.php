@@ -69,4 +69,10 @@ class Routine extends Model
     {
         return $this->belongsTo(Shift::class, 'shift_id');
     }
+
+    // Attendance relationship
+    public function attendances()
+    {
+        return $this->hasMany(StudentAttendanceFilter::class);
+    }
 }

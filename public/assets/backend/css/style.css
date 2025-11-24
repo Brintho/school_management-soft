@@ -2658,4 +2658,74 @@ span[class="fi-rr-"]:before {
         text-decoration: underline;
     } */
 
+/* -- Attendance -- */
+.attendance-text {
+    margin: 20px 0 30px;
+}
+.attendance-text .sub-text {
+    font-size: 14px;
+    color: var(--secondary-color);
+    font-weight: 500;
+    margin: 0 0 10px;
+    display: flex;
+    align-items: center;
+}
+.attendance-text .sub-text .taken {
+    border: 1px solid var(--primary-color);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border-radius: 40px;
+    padding: 6px 10px;
 
+}
+.attendance-text .sub-text .taken img {
+    width: 16px;
+    height: 16px;
+}
+.attendance-text .sub-text .depertment {
+    width: 50px;
+    height: 50px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--primary-color);
+    color: var(--white-color);
+    margin: 0 10px;
+}
+.attendance-text h4 {
+    font-size: 36px;
+    color: var(--secondary-color);
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.attendance-text .sub-text .section {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+}
+.attendance-text .sub-text .section small {
+    color: var(--primary-color);
+}
+.attendance-text .marks-note {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: center;
+}
+.attendance-text .marks-note span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--secondary-color);
+}
+.attendance-text .marks-note span img {
+    width: 20px;
+    height: 20px;
+}
+.attendance-text .marks-note span:last-child img {
+    width: 17px;
+    height: 17px;
+}

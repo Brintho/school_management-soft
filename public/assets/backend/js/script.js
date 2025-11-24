@@ -1,12 +1,12 @@
 /*
- Theme Name: Onlinedu 
- Theme URI: 
- Author: 
- Author URI: 
+ Theme Name: Onlinedu
+ Theme URI:
+ Author:
+ Author URI:
  Description: Onlinedu Responsive HTML5 Template
  Version: 1.0
  License:
- License URI: 
+ License URI:
 */
 
 /*==================================
@@ -14,7 +14,7 @@
 ===================================
    01. Variables
    02. Nice Selects
-  
+
 */
 
 (function () {
@@ -30,7 +30,7 @@
         $('.nice-control').niceSelect();
     }
 
-    // Sidebar Toggle 
+    // Sidebar Toggle
     const sideToggle = $(".sidebar_toggle");
     const sideMenu = $(".sidebar");
     const sidebarOverlay = $(".sidebar-overlay");
@@ -50,6 +50,33 @@
             sidebarOverlay.removeClass("active");
         });
     }
+
+
+    // Table Rows Selected Items
+    document.addEventListener("change", function (event) {
+        if (event.target.matches("table thead input.selectAll")) {
+            const table = event.target.closest("table");
+            const isChecked = event.target.checked;
+            const rowChecks = table.querySelectorAll("tbody input.rowCheckbox");
+            rowChecks.forEach(cb => cb.checked = isChecked);
+            updateSelectionBar(table);
+        }
+    });
+
+    document.addEventListener("change", function (event) {
+        if (event.target.matches("table tbody input.rowCheckbox")) {
+            const table = event.target.closest("table");
+            const rowChecks = table.querySelectorAll("tbody input.rowCheckbox");
+            const checked = table.querySelectorAll("tbody input.rowCheckbox:checked").length;
+            const headerCheck = table.querySelector("thead input.selectAll");
+
+            if (headerCheck) {
+                headerCheck.checked = (rowChecks.length > 0 && checked === rowChecks.length);
+                headerCheck.indeterminate = (checked > 0 && checked < rowChecks.length);
+            }
+            updateSelectionBar(table);
+        }
+    });
 
     // Sidebar Menu
     $(window).on("load", function () {

@@ -8,8 +8,7 @@
     @method('PUT')
 
     <div class="input-field mb-3">
-        <label for="class_id"
-            class="form-label fs-14 fw-500 text-secondary mb-8 required ">{{ translate('Select Class') }}</label>
+        <label for="class_id" class="form-label fs-14 fw-500 text-secondary mb-8 required ">{{ translate('Select Class') }}</label>
         <select id="class_id" name="class_id" class="form-control border rounded-6" required>
             <option value="">{{ translate('Select Class') }}</option>
             @foreach ($classes as $class)
