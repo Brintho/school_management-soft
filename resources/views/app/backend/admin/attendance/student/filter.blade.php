@@ -4,7 +4,7 @@
 @section('content')
     <form action="{{ route('attendance.filter.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
-        <div class="row" id="#">
+        <div class="row" id="about-profile">
             <x-input type="date" class="col-md-6" label="Date of Birth" name="date" required />
             @php
                 $options = [];
