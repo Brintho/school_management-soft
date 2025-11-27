@@ -57,7 +57,7 @@ if (! function_exists('getRoleId')) {
         $role = Role::where('title', $roleName)->first();
 
         if (! $role) {
-            return throw new Exception('Role not found: ' . $roleName);
+            throw new Exception('Role not found: ' . $roleName);
         }
 
         return $role->id;
