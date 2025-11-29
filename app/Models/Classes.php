@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Scopes\CurrentSchoolScope;
 use Illuminate\Database\Eloquent\Model;
 
 class Classes extends Model
@@ -20,6 +21,9 @@ class Classes extends Model
         'description',
         'status',
     ];
+
+    protected $hidden = ['pivot'];
+
     public function subjects()
     {
         return $this->hasMany(Classes::class, 'class_id');
@@ -43,7 +47,11 @@ class Classes extends Model
     public function students()
     {
         return $this->hasMany(Student::class, 'class_id', 'id');
-
     }
-    protected $hidden = ['pivot'];
+
+    protected static function booted()
+    {
+        static::addGlobalScope(new CurrentSchoolScope());
+    }
+
 }

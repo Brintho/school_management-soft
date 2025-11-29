@@ -1,15 +1,8 @@
 <?php
-
 namespace App\Http\Controllers\Backend\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Classes;
-use App\Models\Room;
 use App\Models\Routine;
-use App\Models\Section;
-use App\Models\Shift;
-use App\Models\Subject;
-use App\Models\Teacher;
 use Illuminate\Http\Request;
 
 class RoutineController extends Controller

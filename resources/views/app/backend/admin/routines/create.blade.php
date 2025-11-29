@@ -30,7 +30,8 @@
         'Wednesday' => 'Wednesday',
         'Thursday' => 'Thursday',
         'Friday' => 'Friday',
-    ]" data-value="{{ isset($day) ? $day : now()->englishDayOfWeek }}" required />
+    ]"
+        data-value="{{ isset($day) ? $day : now()->englishDayOfWeek }}" required />
 
 
     <x-input type="date" name="date" label="Class Date" required />

@@ -1,7 +1,7 @@
 <?php
-
 namespace App\Models;
 
+use App\Models\Scopes\scopeSchool;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 
@@ -32,7 +32,7 @@ class Student extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
     public function class ()
@@ -53,6 +53,15 @@ class Student extends Model
     public function school()
     {
         return $this->belongsTo(School::class, 'school_id', 'id');
+    }
+
+    public function attendancesFilter()
+    {
+        return $this->hasMany(StudentAttendanceFilter::class, 'student_id', 'id');
+    }
+    public function attendances()
+    {
+        return $this->hasMany(StudentAttendance::class, 'student_id', 'id');
     }
 
     protected $casts = [

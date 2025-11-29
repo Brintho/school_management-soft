@@ -15,10 +15,14 @@
                 <div class="chart-control d-flex align-items-center flex-wrap gap-8">
                     <div class="message-search">
                         <form action="#" class="w-100">
-                            <input type="search" class="form-control fs-12 border rounded-6" id="search" placeholder="{{ translate('Search by class, subject, teacher') }}">
+                            <input type="search" class="form-control fs-12 border rounded-6" id="search"
+                                placeholder="{{ translate('Search by class, subject, teacher') }}">
                             <label for="search">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M7.66732 14.4997C3.90065 14.4997 0.833984 11.433 0.833984 7.66634C0.833984 3.89967 3.90065 0.833008 7.66732 0.833008C11.434 0.833008 14.5007 3.89967 14.5007 7.66634C14.5007 11.433 11.434 14.4997 7.66732 14.4997Z" fill="#515155"></path>
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M7.66732 14.4997C3.90065 14.4997 0.833984 11.433 0.833984 7.66634C0.833984 3.89967 3.90065 0.833008 7.66732 0.833008C11.434 0.833008 14.5007 3.89967 14.5007 7.66634C14.5007 11.433 11.434 14.4997 7.66732 14.4997Z"
+                                        fill="#515155"></path>
                                     <path
                                         d="M14.6671 15.1663C14.5404 15.1663 14.4137 15.1196 14.3137 15.0196L12.0005 13C11.8072 12.8067 11.8072 12.4867 12.0005 12.2933C12.1938 12.1 12.5138 12.1 12.7072 12.2933L15.0204 14.313C15.2137 14.5063 15.2137 14.8263 15.0204 15.0196C14.9204 15.1196 14.7937 15.1663 14.6671 15.1663Z"
                                         fill="#515155"></path>
@@ -41,17 +45,17 @@
             @foreach ($days as $day)
                 <div class="day-row d-flex border mb-2 routine-day-box">
 
-                    <!-- Day Name -->
                     <div class="day-name p-3 text-center align-items-center d-flex justify-content-center border-end">
                         <strong>{{ $day }}</strong>
                     </div>
 
-                    <!-- Routine Slots -->
                     <div class="routine-slots flex-grow-1 d-flex align-items-center p-2 gap-2 flex-wrap">
 
-                        <!-- Add Routine Button -->
-                        <button type="button" data-modal="r-canvas" data-url="{{ path(['backend::admin.routines.create', 'day' => $day]) }}" data-title="Add Routine" class="btn">
-                            <div class="add-slot-btn routine-box-btn d-flex align-items-center justify-content-center" data-day="{{ $day }}">
+                        <button type="button" data-modal="r-canvas"
+                            data-url="{{ path(['backend::admin.routines.create', 'day' => $day]) }}"
+                            data-title="Add Routine" class="btn">
+                            <div class="add-slot-btn routine-box-btn d-flex align-items-center justify-content-center"
+                                data-day="{{ $day }}">
                                 <i class="fa-solid fa-plus fs-20"></i>
                             </div>
                         </button>
@@ -106,7 +110,11 @@
                                                                 {{ date($routine->date) }}
                                                             </div>
                                                             <x-dropdown>
-                                                                <x-drop-canvas :title="translate('Edit')" :url="path(['backend::admin.routines.edit', 'id' => $routine->id])" :icon="'fi fi-rr-file-edit'" divider />
+                                                                <x-drop-canvas :title="translate('Edit')" :url="path([
+                                                                    'backend::admin.routines.edit',
+                                                                    'id' => $routine->id,
+                                                                ])"
+                                                                    :icon="'fi fi-rr-file-edit'" divider />
                                                                 <x-drop-delete :url="route('routines.delete', $routine->id)" />
                                                             </x-dropdown>
 
@@ -138,7 +146,11 @@
 
                                                     {{ date($routine->date) }}
                                                     <x-dropdown>
-                                                        <x-drop-canvas :title="translate('Edit')" :url="path(['backend::admin.routines.edit', 'id' => $routine->id])" :icon="'fi fi-rr-file-edit'" divider />
+                                                        <x-drop-canvas :title="translate('Edit')" :url="path([
+                                                            'backend::admin.routines.edit',
+                                                            'id' => $routine->id,
+                                                        ])" :icon="'fi fi-rr-file-edit'"
+                                                            divider />
                                                         <x-drop-delete :url="route('routines.delete', $routine->id)" />
                                                     </x-dropdown>
                                                 </div>
