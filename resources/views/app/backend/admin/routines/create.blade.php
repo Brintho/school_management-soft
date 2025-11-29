@@ -11,10 +11,10 @@
     @csrf
 
     <x-select name="class_id" label="Select Class" :options="$classes->pluck('name', 'id')" id="class-select" required />
-    <div id="section-wrapper" style="display:none;">
+    <div id="section-wrapper">
         <x-select name="section_id" label="Select Section" :options="[]" id="section-select" />
     </div>
-    <div id="subject-wrapper" style="display:none;">
+    <div id="subject-wrapper">
         <x-select name="subject_id" label="Select Subject" :options="[]" id="subject-select" required />
     </div>
     <x-select name="teacher_id" label="Select Teacher" :options="$users->pluck('name', 'id')" required />
@@ -30,8 +30,7 @@
         'Wednesday' => 'Wednesday',
         'Thursday' => 'Thursday',
         'Friday' => 'Friday',
-    ]"
-        data-value="{{ isset($day) ? $day : now()->englishDayOfWeek }}" required />
+    ]" data-value="{{ isset($day) ? $day : now()->englishDayOfWeek }}" required />
 
 
     <x-input type="date" name="date" label="Class Date" required />

@@ -2745,7 +2745,7 @@ span[class="fi-rr-"]:before {
 .att-cell {
     display: flex;
     gap: 10px;
-    width:100px
+    width: 100px
 }
 
 .att-cell input[type="radio"] {
@@ -2780,4 +2780,12 @@ span[class="fi-rr-"]:before {
 .att-cell label:hover {
     transform: scale(1.1);
     border-color: #999;
+}
+
+#section-wrapper {
+    display: none;
+}
+
+#subject-wrapper {
+    display: none;
 }

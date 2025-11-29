@@ -10,18 +10,15 @@
 
             <x-input type="date" class="col-md-2" name="date" :value="now()->format('Y-m-d')" required />
 
-            <x-select name="class_id" class="col-md-2" placeholder="{{ translate('Select Class') }}" :options="$classes->pluck('name', 'id')"
-                id="class-select" required />
+            <x-select name="class_id" class="col-md-2" placeholder="{{ translate('Select Class') }}" :options="$classes->pluck('name', 'id')" id="class-select" required />
 
-            <div id="section-wrapper" class="col-md-2" style="display:none;">
-                <x-select name="section_id" placeholder="{{ translate('Select Section') }}" :options="[]"
-                    id="section-select" required />
+            <div id="section-wrapper" class="col-md-2">
+                <x-select name="section_id" placeholder="{{ translate('Select Section') }}" :options="[]" id="section-select" required />
             </div>
 
 
             <div id="subject-wrapper" class="col-md-2">
-                <x-select name="subject_id" :options="[]" id="subject-select"
-                    placeholder="{{ translate('Select Subject') }}" required />
+                <x-select name="subject_id" :options="[]" id="subject-select" placeholder="{{ translate('Select Subject') }}" required />
             </div>
 
 
@@ -34,20 +31,18 @@
                     <div class="card">
                         <!-- Student Table -->
                         <div class="table-responsive">
-                            <table
-                                class="table align-middle fs-12 text-secondary student-table align-middle table-bordered all-studentTable mb-0">
+                            <table class="table align-middle fs-12 text-secondary student-table align-middle table-bordered all-studentTable mb-0">
                                 <thead class="table-light">
                                     <tr class="fs-12 fw-400 text-uppercase">
                                         <th scope="col">
                                             <div class="d-flex align-items-center gap-6">
-                                                <input type="checkbox" id="name"
-                                                    class="form-check-input m-0 selectAll">
+                                                <input type="checkbox" id="name" class="form-check-input m-0 selectAll">
                                                 <label for="name" class="form-check-label">ID</label>
                                             </div>
                                         </th>
-                                        <th scope="col ">Image</th>
-                                        <th scope="col ">Name</th>
-                                        <th scope="col ">Subject</th>
+                                        <th scope="col ">{{ translate('Image') }}</th>
+                                        <th scope="col ">{{ translate('Name') }}</th>
+                                        <th scope="col ">{{ translate('Status') }}</th>
 
                                     </tr>
                                 </thead>
@@ -55,10 +50,8 @@
                                     @foreach ($students as $key => $student)
                                         <tr>
                                             <td class="d-flex align-items-center gap-2">
-                                                <input type="checkbox" id="author{{ $key }}"
-                                                    class="form-check-input rowCheckbox mt-0">
-                                                <label for="author{{ $key }}"
-                                                    class="form-check-label fs-12 mb-0 d-flex align-items-center justify-content-between">
+                                                <input type="checkbox" id="author{{ $key }}" class="form-check-input rowCheckbox mt-0">
+                                                <label for="author{{ $key }}" class="form-check-label fs-12 mb-0 d-flex align-items-center justify-content-between">
                                                     {{ $key + 1 }}
                                                 </label>
                                             </td>
@@ -67,8 +60,7 @@
                                                 <div class="d-flex align-items-center gap-8">
 
                                                     <figure>
-                                                        <img src="{{ $student->photo }}" class="rounded-circle img-fluid"
-                                                            width="45" height="45" alt="Student">
+                                                        <img src="{{ $student->photo }}" class="rounded-circle img-fluid" width="45" height="45" alt="Student">
                                                     </figure>
                                                 </div>
                                             </td>
@@ -84,12 +76,10 @@
 
 
                                             <td class="att-cell">
-                                                <input type="radio" name="status[{{ $student->id }}]" value="1"
-                                                    id="P{{ $key }}" class="present" checked>
+                                                <input type="radio" name="status[{{ $student->id }}]" value="1" id="P{{ $key }}" class="present" checked>
                                                 <label for="P{{ $key }}">P</label>
 
-                                                <input type="radio" name="status[{{ $student->id }}]" value="0"
-                                                    id="A{{ $key }}" class="absent">
+                                                <input type="radio" name="status[{{ $student->id }}]" value="0" id="A{{ $key }}" class="absent">
                                                 <label for="A{{ $key }}">A</label>
                                             </td>
                                         </tr>
@@ -97,8 +87,7 @@
                                 </tbody>
                             </table>
 
-                            <div
-                                class="pagination-wraper p-12 d-flex align-items-center justify-content-between flex-wrap gap-2">
+                            <div class="pagination-wraper p-12 d-flex align-items-center justify-content-between flex-wrap gap-2">
                                 <div class="showing-pagination d-flex align-items-center gap-8">
                                     <span class="fs-12">Showing</span>
                                     <select name="" id="" class="nice-control">
@@ -132,8 +121,7 @@
                                     <ul>
                                         <li>
                                             <a href="#">
-                                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
-                                                    xmlns="http://www.w3.org/2000/svg">
+                                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path fill-rule="evenodd" clip-rule="evenodd"
                                                         d="M9.75592 0.245054C10.0814 0.570491 10.0814 1.09813 9.75592 1.42357L5.34518 5.83431L9.75592 10.2451C10.0814 10.5705 10.0814 11.0981 9.75592 11.4236C9.43048 11.749 8.90285 11.749 8.57741 11.4236L3.57741 6.42357C3.25197 6.09813 3.25197 5.57049 3.57741 5.24505L8.57741 0.245054C8.90285 -0.0803827 9.43049 -0.0803827 9.75592 0.245054Z"
                                                         fill="#515155" />
@@ -148,8 +136,7 @@
                                         <li><a href="#">5</a></li>
                                         <li>
                                             <a href="#">
-                                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
-                                                    xmlns="http://www.w3.org/2000/svg">
+                                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path fill-rule="evenodd" clip-rule="evenodd"
                                                         d="M2.24408 11.7569C1.91864 11.4315 1.91864 10.9038 2.24408 10.5784L6.65482 6.16764L2.24408 1.7569C1.91864 1.43146 1.91864 0.903825 2.24408 0.578388C2.56952 0.252951 3.09715 0.252951 3.42259 0.578388L8.42259 5.57839C8.74803 5.90382 8.74803 6.43146 8.42259 6.7569L3.42259 11.7569C3.09715 12.0823 2.56951 12.0823 2.24408 11.7569Z"
                                                         fill="#515155" />
@@ -166,8 +153,7 @@
                                         <span class="checked-count">0</span> of <span class="total-count">0</span>
                                         selected
                                         <button type="button" class="clear-selection">
-                                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
-                                                xmlns="http://www.w3.org/2000/svg">
+                                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path fill-rule="evenodd" clip-rule="evenodd"
                                                     d="M0.241433 10.5957C-0.0798388 10.917 -0.0797893 11.4378 0.241531 11.7591C0.562852 12.0803 1.08376 12.0803 1.40503 11.759L6.0001 7.16347L10.5956 11.7586C10.9168 12.0798 11.4378 12.0798 11.759 11.7586C12.0803 11.4373 12.0803 10.9164 11.759 10.5952L7.16351 5.99999L11.7587 1.40431C12.0799 1.08302 12.0799 0.562144 11.7586 0.240905C11.4373 -0.0803426 10.9163 -0.0802934 10.5951 0.241003L5.99994 4.83659L1.40447 0.241398C1.08318 -0.0798655 0.56226 -0.0798655 0.240972 0.241398C-0.080324 0.56267 -0.080324 1.08354 0.240972 1.40482L4.83662 6.00007L0.241433 10.5957Z"
                                                     fill="#515155" />
@@ -175,11 +161,9 @@
                                         </button>
                                     </div>
                                     <div class="dropdown export">
-                                        <button class="btn btn-secondary dropdown-toggle" type="button"
-                                            data-bs-toggle="dropdown" aria-expanded="false">
+                                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                             <span>
-                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
-                                                    xmlns="http://www.w3.org/2000/svg">
+                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path
                                                         d="M8.1665 3.93758H5.83317C5.27317 3.93758 4.229 3.93758 4.229 2.33341C4.229 0.729248 5.27317 0.729248 5.83317 0.729248H8.1665C8.7265 0.729248 9.77067 0.729248 9.77067 2.33341C9.77067 2.89341 9.77067 3.93758 8.1665 3.93758ZM5.83317 1.60425C5.25567 1.60425 5.104 1.60425 5.104 2.33341C5.104 3.06258 5.25567 3.06258 5.83317 3.06258H8.1665C8.89567 3.06258 8.89567 2.91091 8.89567 2.33341C8.89567 1.60425 8.744 1.60425 8.1665 1.60425H5.83317Z"
                                                         fill="#0E0F14" />
@@ -208,8 +192,7 @@
                                     </div>
                                     <button type="button" class="pagin-delete">
                                         <span>
-                                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
-                                                xmlns="http://www.w3.org/2000/svg">
+                                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path
                                                     d="M11.375 3.20825L11.0135 9.05623C10.9211 10.5503 10.875 11.2974 10.5005 11.8345C10.3153 12.1001 10.0769 12.3242 9.80041 12.4926C9.24122 12.8333 8.49275 12.8333 6.99574 12.8333C5.49682 12.8333 4.74734 12.8333 4.18778 12.4919C3.91113 12.3232 3.67267 12.0987 3.48756 11.8327C3.11318 11.2948 3.06801 10.5466 2.97769 9.05045L2.625 3.20825"
                                                     stroke="#F63A45" stroke-linecap="round" />
@@ -329,7 +312,6 @@
                                 <img src="${student.photo}" class="rounded-circle" width="45" height="45" alt="Student">
                             </td>
                             <td>${student.name ?? 'Unknown'}</td>
-                            <td>${student.student?.subject?.name ?? 'N/A'}</td>
                             <td class="att-cell">
                                 <input type="radio" name="status[${student.id}]" value="1" id="P${key}" class="present" checked>
                                 <label for="P${key}">P</label>
