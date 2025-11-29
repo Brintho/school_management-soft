@@ -180,6 +180,16 @@ class TeacherController extends Controller
         return redirect()->route('teachers')->with('success', 'Teacher updated successfully');
     }
 
+    // View data show
+    public function view($id)
+    {
+        $page_data['teacher'] = User::with('teacher')->where('role_id', getRoleId('teacher'))->findOrFail($id);
+        $page_data['shifts']  = Shift::get();
+        return view('app.backend.admin.users.teachers.view', $page_data);
+    }
+
+    // View data store
+
     public function delete($id)
     {
         $user = User::with('teacher')->where('role_id', getRoleId('teacher'))->findOrFail($id);

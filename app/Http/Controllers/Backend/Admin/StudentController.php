@@ -208,6 +208,21 @@ class StudentController extends Controller
         return redirect()->route('students')->with('success', 'Student updated successfully');
     }
 
+    // VIEW Student
+    public function view($id)
+    {
+
+        $student = Student::with('user')->findOrFail($id);
+
+        $page_data['student']         = $student->user;
+        $page_data['student_details'] = $student; // extra
+        $page_data['classes']         = Classes::get();
+        $page_data['sections']        = Section::where('class_id', $student->class_id)->get();
+        $page_data['shifts']          = Shift::get();
+
+        return view('backend::admin.users.students.view', $page_data);
+    }
+
     public function delete($id)
     {
         $student = Student::with('user')->findOrFail($id);

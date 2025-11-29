@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers\Backend\Admin;
 
 use App\Http\Controllers\Controller;
@@ -54,5 +53,4 @@ class RoomController extends Controller
         $room->delete();
         return goBack('success', 'Room deleted successfully');
     }
-
 }

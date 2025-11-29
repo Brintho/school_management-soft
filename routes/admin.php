@@ -53,6 +53,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
         Route::get('teachers/create', 'create')->name('teachers.create');
         Route::post('teachers', 'store')->name('teachers.store');
         Route::get('teachers/edit/{id}', 'edit')->name('teachers.edit');
+        Route::get('teachers/view/{id}', 'view')->name('teachers.view');
         Route::put('teachers/{id}', 'update')->name('teachers.update');
         Route::delete('teachers/{id}', 'delete')->name('teachers.delete');
     });
@@ -63,6 +64,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
         Route::post('students', 'store')->name('students.store');
         Route::get('students/edit/{id}', 'edit')->name('students.edit');
         Route::put('students/{id}', 'update')->name('students.update');
+        Route::get('students/view/{id}', 'view')->name('students.view');
         Route::delete('students/{id}', 'delete')->name('students.delete');
     });
 

@@ -68,7 +68,7 @@
                                         <img src="{{ $user->photo }}" class="rounded-circle img-fluid" width="45" height="45" alt="Student">
                                     </figure>
                                     <div class="form-check-label fs-12">
-                                        <span class="d-block fw-500 mb-6">{{ $user->name ?? 'N/A' }}</span>
+                                        <span class="d-block fw-500 mb-6"><a href="{{ route('students.view', $user->student->id) }}">{{ $user->name ?? 'N/A' }}</a></span>
                                         <span class="text-body">{{ $user->email ?? 'N/A' }}</span>
                                     </div>
                                 </div>
@@ -93,7 +93,8 @@
 
                             <td>
                                 <x-dropdown>
-                                    <x-drop-item :title="translate('Edit')" :url="route('students.edit', $user->student->id)" :icon="'fi fi-rr-file-edit'" divider />
+                                    <x-drop-item :title="translate('View')" :url="route('students.view', $user->student->id)" :icon="'fi fi-rr-eye'" divider />
+                                    {{-- <x-drop-item :title="translate('Edit')" :url="route('students.edit', $user->student->id)" :icon="'fi fi-rr-file-edit'" divider /> --}}
                                     <x-drop-delete :url="route('students.delete', $user->student->id)" />
                                 </x-dropdown>
                             </td>
