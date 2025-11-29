@@ -13,11 +13,11 @@
 
     <x-select name="class_id" label="Select Class" :options="$classes->pluck('name', 'id')" id="class-select" data-value="{{ $routine->class_id }}" required />
     @if ($routine->section_id)
-        <div id="section-wrapper" style="display:none;">
+        <div id="section-wrapper">
             <x-select name="section_id" label="Select Section" :options="[]" id="section-select" data-value="{{ $routine->section_id }}" />
         </div>
     @endif
-    <div id="subject-wrapper" style="display:none;">
+    <div id="subject-wrapper">
         <x-select name="subject_id" label="Select Subject" :options="[]" id="subject-select" required data-value="{{ $routine->subject_id }}" />
     </div>
     <x-select name="teacher_id" label="Select Teacher" :options="$users->pluck('name', 'id')" required data-value="{{ $routine->teacher_id }}" />

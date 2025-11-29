@@ -15,15 +15,6 @@ class ClassController extends Controller
     public function index()
     {
         $page_data['classes'] = Classes::with('sections')->orderBy("created_at", "desc")->paginate(20);
-
-        // $teachers = User::where('is_teacher', 1)->all();
-
-        // // for single and multiple
-        // Notification::send($teachers, new WelcomeNotification());
-
-        // // for single
-        // dd(auth()->user()->notify(new WelcomeNotification()));
-
         return view('backend::admin.classes.index', $page_data);
 
     }

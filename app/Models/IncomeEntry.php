@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Scopes\scopeSchool;
 use Illuminate\Database\Eloquent\Model;
 
 class IncomeEntry extends Model
@@ -17,4 +18,5 @@ class IncomeEntry extends Model
         'details',
         'amount',
     ];
+
 }

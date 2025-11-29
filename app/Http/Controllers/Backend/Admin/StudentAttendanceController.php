@@ -1,40 +1,61 @@
 <?php
-
 namespace App\Http\Controllers\Backend\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Routine;
-use App\Models\StudentAttendanceFilter;
+use App\Models\Classes;
+use App\Models\Section;
+use App\Models\Subject;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class StudentAttendanceController extends Controller
 {
-    public function filter()
-    {
-        $query = Routine::query()->with(['classes', 'section', 'subject']);
-
-        if (auth()->user()->role_id == getRoleId('teacher')) {
-            $query->where('teacher_id', auth()->id());
-        }
-
-        $page_date['data'] = $query->get();
-        return view('backend::admin.attendance.student.filter', $page_date);
-    }
-
-    public function store(Request $request)
-    {
-        $filter = StudentAttendanceFilter::create([
-            'school_id'  => getSchoolId(),
-            'routine_id' => $request->routine_id,
-            'date'       => $request->date,
-        ]);
-
-        return redirect()->route('attendance')->with('success', 'Filter created successfully');
-    }
-
     public function index()
     {
-        $page_date['data'] = StudentAttendanceFilter::where('school_id', getSchoolId())->get();
-        return view('backend::admin.attendance.student.index', $page_date);
+
+        $page_data['classes']  = Classes::where("school_id", )->get();
+        $page_data['sections'] = Section::where("school_id", )->get();
+        $page_data['subjects'] = Subject::where("school_id", )->get();
+        $page_data['students'] = User::with('student')
+            ->where('role_id', getRoleId('student'))
+            ->where('school_id', )
+            ->get();
+
+        return view('backend::admin.attendance.student.filter', $page_data);
     }
+
+    public function filter(Request $request)
+    {
+        $students = User::with('student')
+            ->where('role_id', getRoleId('student'));
+
+        // class filter
+        if ($request->class_id) {
+            $students->whereHas('student', function ($q) use ($request) {
+                $q->where('class_id', $request->class_id);
+            });
+        }
+
+        // section filter
+        if ($request->section_id) {
+            $students->whereHas('student', function ($q) use ($request) {
+                $q->where('section_id', $request->section_id);
+            });
+        }
+
+        // Ajax হলে JSON return করো
+        if ($request->ajax()) {
+            return response()->json([
+                'students' => $students->get(),
+            ]);
+        }
+
+        // Normal GET হলে view return
+        $page_data['classes']  = Classes::where("school_id", auth()->user()->school_id)->get();
+        $page_data['sections'] = Section::where("school_id", auth()->user()->school_id)->get();
+        $page_data['students'] = $students->get();
+
+        return view('backend::admin.attendance.student.filter', $page_data);
+    }
+
 }

@@ -1,11 +1,8 @@
 <?php
 use App\Http\Controllers\Backend\Admin\AccountsController;
-use App\Http\Controllers\Backend\Admin\AttendanceController;
 use App\Http\Controllers\Backend\Admin\ChartOfAccountController;
 use App\Http\Controllers\Backend\Admin\ClassController;
 use App\Http\Controllers\Backend\Admin\IncomeEntryController;
-use App\Http\Controllers\Backend\Admin\ProxieController;
-use App\Http\Controllers\Backend\Admin\ProxyController;
 use App\Http\Controllers\Backend\Admin\RoomController;
 use App\Http\Controllers\Backend\Admin\RoutineController;
 use App\Http\Controllers\Backend\Admin\SectionController;
@@ -15,10 +12,6 @@ use App\Http\Controllers\Backend\Admin\StudentController;
 use App\Http\Controllers\Backend\Admin\SubjectController;
 use App\Http\Controllers\Backend\Admin\TeacherController;
 use App\Http\Controllers\Backend\Admin\UserController;
-use App\Http\Controllers\Backend\SuperAdmin\PackageController;
-use App\Http\Controllers\Backend\SuperAdmin\packageFeaturesController;
-use App\Http\Controllers\Backend\SuperAdmin\SchoolController;
-use App\Models\IncomeEntry;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth', 'admin'])->group(function () {
@@ -114,12 +107,9 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('accounts/report', [AccountsController::class, 'report'])->name('accounts.report');
 
     Route::controller(StudentAttendanceController::class)->group(function () {
-        Route::get('attendance/filter', 'filter')->name('attendance.filter');
-        Route::post('attendance/filter', 'store')->name('attendance.filter.store');
         Route::get('attendance', 'index')->name('attendance');
-        Route::post('attendance', 'store')->name('attendance.store');
-        Route::put('attendance/{id}', 'update')->name('attendance.update');
-        Route::delete('attendance/{id}', 'delete')->name('attendance.delete');
+        Route::get('attendance/filter', 'filter')->name('attendance.filter');
+
     });
 
 });

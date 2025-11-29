@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('student_attendances', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('school_id');
-            $table->unsignedBigInteger('student_id');
-            $table->unsignedBigInteger('routine_id');
-
+            $table->unsignedBigInteger('school_id')->nullable();
+            $table->unsignedBigInteger('student_id')->nullable();
+            $table->unsignedBigInteger('routine_id')->nullable();
+            $table->boolean('status')->nullable();
             $table->timestamps();
         });
     }

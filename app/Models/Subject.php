@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Scopes\scopeSchool;
 use Illuminate\Database\Eloquent\Model;
 
 class Subject extends Model
